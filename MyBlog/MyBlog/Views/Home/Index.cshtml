@@ -1,12 +1,11 @@
-﻿
-@using MyBlog.Models
+﻿@using MyBlog.Models
 @model ArticleModel
  <div class="mainbar">    
 <div class="article">
-    <h2><span>@Html.Raw(Model.Post.Title)</span></h2>
+    <h2>@*<span>@Html.Raw(Model.Post.Title)</span>*@</h2>
     <div class="clr"></div>
-    <p>Posted by <a href="#">Admin</a> <span>&nbsp;&bull;&nbsp;</span> @Html.Raw(Model.Post.Date.ToString("D")) </p>
-    <img src="@Model.Post.Path" width="198" height="188" alt="" class="fl" />
+    <p>Posted by <a href="#">Admin</a> <span>&nbsp;&bull;&nbsp;</span> @Html.Raw(Model.Post.DateCreated.ToString("D")) </p>
+    @*<img src="" width="198" height="188" alt="" class="fl" />*@
     <p>@Html.Raw(Model.Post.Body)</p>
     <p>Tagged: <a href="#">orci</a>, <a href="#">lectus</a>, <a href="#">varius</a>, <a href="#">turpis</a></p>
 </div>
@@ -18,14 +17,13 @@
             <li>
                 <div class="comment"> 
                     <a href="#"><img src="~/images/userpic.gif" width="40" height="40" alt="" class="userpic" /></a>
-                    <p><a href="#">Admin</a> Says:<br />
-                     April 20th, 2009 at 3:21 pm</p>
-                    <p>@item</p>
+                    <p><a href="#">@item.Username</a> Says:<br />
+                     @item.Date.ToString("D"), @item.Date.ToString("hh:mm")</p>
+                    <p>@item.Body</p>
                 </div>
             </li>
         }
     </ul>
     @Html.Partial("~/Views/Home/AddComment.cshtml")
-   @* new AddCommentModel() { User = new UserModel() }, new ViewDataDictionary())*@
 </div> 
  </div>

@@ -7,11 +7,13 @@ namespace MyBlog.Models
 {
     public class CommentItemModel
     {
-        public CommentItemModel()
+        public CommentItemModel() { }
+
+        public CommentItemModel(string Username, string Body, DateTime Date)
         {
-            Username = "Alex";
-            Body = "Comment";
-            Date = DateTime.Now;
+            this.Username = Username;
+            this.Body = Body;
+            this.Date = Date;
         }
 
         public string Username { get; set; }

@@ -7,13 +7,13 @@ namespace MyBlog.Models
 {
     public class UserModel
     {
-        public ICollection<string> Countries
-        {
-            get
-            {
-                return Forms.Repository.CountriesRepository.Countries;
-            }
-        }
+        //public ICollection<string> Countries
+        //{
+        //    get
+        //    {
+        //        return Forms.Repository.CountriesRepository.Countries;
+        //    }
+        //}
 
         public UserModel() 
         {

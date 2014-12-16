@@ -7,15 +7,19 @@ namespace MyBlog.Models
 {
     public class PostModel
     {
-        private readonly string title, body, path;
-        private readonly DateTime date;
+        private readonly string title, body;
+        private readonly DateTime dateCreated;
 
-        public PostModel(string title, string body, DateTime date, string path)
+        public PostModel(string title)
+        {
+            this.title = title;
+        }
+
+        public PostModel(string title, string body, DateTime dateCreated)
         {
             this.title = title;
             this.body = body;
-            this.date = date;
-            this.path = path;
+            this.dateCreated = dateCreated;
         }
 
         public string Title
@@ -34,19 +38,13 @@ namespace MyBlog.Models
             }
         }
 
-        public DateTime Date
+        public DateTime DateCreated
         {
             get
             {
-                return date;
+                return dateCreated;
             }
         }
-        public string Path 
-        {
-            get 
-            {
-                return path;
-            }
-        }
+       
     }
 }
