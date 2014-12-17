@@ -1,0 +1,15 @@
+﻿@{
+    Layout = null;
+}
+
+@model IEnumerable<MyBlog.Repository.Domain.Comment>
+
+    <ul class="sb_menu">
+        @foreach (var item in Model.OrderByDescending(p => p.ID).Take(3))
+        {
+            <li>
+                <p class="date">@item.Date.ToString("D") <span>@item.Date.ToString("HH:mm")</span></p>
+                <p class="post"><a href="@Url.Action("Index", "Home", new { title = item.Post.Title})">@item.Body</a></p>
+            </li>
+        }
+    </ul>

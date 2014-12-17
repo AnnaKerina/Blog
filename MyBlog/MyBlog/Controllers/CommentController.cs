@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MyBlog.Models;
+using MyBlog.Repository;
 
 namespace MyBlog.Controllers
 {
@@ -14,8 +15,8 @@ namespace MyBlog.Controllers
 
         public ActionResult Recent()
         {
-            var model = new RecentDataModel();
-            return View(model);
+            var db = new EFContext();
+            return View(db.Comments.AsEnumerable());
         }
 
     }

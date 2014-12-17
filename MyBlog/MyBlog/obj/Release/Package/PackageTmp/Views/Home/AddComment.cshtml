@@ -1,0 +1,15 @@
+﻿@{
+    Layout = null;
+}
+
+@model MyBlog.Models.ArticleModel
+<div class="add-comment">
+    <form action="@Url.Action("Index", "Home", new {title = Model.Post.Title })" method="post" enctype="multipart/form-data">
+        @Html.TextAreaFor(m => m.NewComment.Comment, new { placeholder = "Your comment", @class="txt-area" })
+        @Html.TextBoxFor(m => m.NewComment.User.Username)        
+        <div class="wrap-btn">
+            <button class="btn-cancel">Cancel</button>
+            <button class="btn-save">Save changes</button>
+        </div>  
+    </form>
+</div>

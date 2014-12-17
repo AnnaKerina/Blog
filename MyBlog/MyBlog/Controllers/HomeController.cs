@@ -22,7 +22,7 @@ namespace MyBlog.Controllers
         {
             if (title == null)
             {
-                title = "First Post";
+                title = "First Post1";
             }
 
             using (var ctx = new EFContext())
@@ -42,13 +42,6 @@ namespace MyBlog.Controllers
             }
         }
 
-
-        public ActionResult Article() {
-            var model = new ArticleModel();
-            return View(model); ;
-            
-        }
-
         public ActionResult AboutMe() {
             var model = new AboutMe();
             return View(model);
@@ -61,23 +54,35 @@ namespace MyBlog.Controllers
         }
 
         public ActionResult Titels() {
-            var model = new ArticleModel();
-            return View(model);
+            var db = new EFContext();
+            return View(db.Posts.AsEnumerable());
         }
 
         [HttpPost]
-        public ActionResult Index(AddCommentModel model)
+        public ActionResult Index(ArticleModel model, string title)
         {
-            if (model.User != null && model.User.Avatar != null && model.User.Avatar.ContentLength > 0)
+            if (title == null)
             {
-                model.User.Avatar.SaveAs("C:/Temp/" + model.User.Avatar.FileName);
-            }
-            if (!string.IsNullOrWhiteSpace(model.Comment))
-            {
-                CommentsRepository.Comments.Add(model.Comment);
+                title = "First Post";
             }
 
-            return View(new ArticleModel());
+            if (model.NewComment != null && ModelState.IsValid)
+            {
+
+                using (var ctx = new EFContext())
+                {
+                    var post = ctx.Posts.Where(p => p.Title == title).FirstOrDefault();
+                    if (post != null)
+                    {
+                        ctx.Comments.Add(new Comment() { Body = model.NewComment.Comment, ArticleID = post.ID, Username = model.NewComment.User.Username,Date=DateTime.Now });
+                        ctx.SaveChanges();
+                    }
+                }
+                ModelState.Clear();
+                return RedirectToAction("Index", new { title = title });
+            }
+
+            return View(model);
         }
 
         [HttpGet]
@@ -116,7 +121,45 @@ namespace MyBlog.Controllers
             db.Posts.Add(post);
             db.SaveChanges();
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Titels", "Home");
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            var db = new EFContext();
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            Post post = db.Posts.Find(id);
+            if (post != null)
+            {
+                return View(post);
+            }
+            return HttpNotFound();
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Post post)
+        {
+            var db = new EFContext();
+            post.Date = DateTime.Now;
+            db.Entry(post).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Titels", "Home");
+        }
+
+        public ActionResult Delete(int id)
+        {
+            var db = new EFContext();
+            Post post = db.Posts.Find(id);
+            if (post != null)
+            {
+                db.Posts.Remove(post);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Titels", "Home");
         }
     }
 }

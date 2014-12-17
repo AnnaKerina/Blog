@@ -1,20 +1,20 @@
 ﻿@{
     ViewBag.Title = "Titels";
 }
-@model MyBlog.Models.ArticleModel
+ @model IEnumerable<MyBlog.Repository.Domain.Post>
 <div class="mainbar">    
 <div class="article">
-    <ul>  @*!!!!сохраняет только посы*@
-        @foreach(var item in Model.Titels){      
+   
+
+    <ul class="list-comment">
+        @foreach (var item in Model.OrderByDescending(p => p.ID))
+        {
             <li>
-                <h2>@Html.Raw(Model.Title)</h2>
-                <div class="clr"></div>
-                <p>Posted by <a href="#">Admin</a> <span>&nbsp;&bull;&nbsp;</span> @Html.Raw(Model.Date.ToString("D")) </p>
-                <img src="@Model.Path" width="198" height="188" alt="" class="fl" />
-                <p>@item</p>
-              @*  <p>@Html.ActionLink("","","")</p>*@
-        <div class="clr"></div>
-             </li>
+                <p class="date">@item.Date.ToString("D")</p>
+                <p class="post"><a href="@Url.Action("Index","Home", new { title = item.Title})">@item.Title</a></p>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) 
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </li>
         }
     </ul>
 </div>

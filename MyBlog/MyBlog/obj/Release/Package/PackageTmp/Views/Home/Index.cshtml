@@ -1,0 +1,27 @@
+﻿@using MyBlog.Models
+@model ArticleModel
+ <div class="mainbar">    
+<div class="article">
+    <h2><span>@Html.Raw(Model.Post.Title)</span></h2>
+    <div class="clr"></div>
+    <p>Posted by <a href="#">Admin</a> <span>&nbsp;&bull;&nbsp;</span> @Html.Raw(Model.Post.DateCreated.ToString("D")) </p>
+    <p>@Html.Raw(Model.Post.Body)</p>
+</div>
+<div class="article">
+   <h2>Comments</h2>
+    <ul class="list-comment">
+        @foreach (var item in Model.Comments)
+        {
+            <li>
+                <div class="comment"> 
+                    <a href="#"><img src="~/images/userpic.gif" width="40" height="40" alt="" class="userpic" /></a>
+                    <p><a href="#">@item.Username</a> Says:<br />
+                     @item.Date.ToString("D"), @item.Date.ToString("hh:mm")</p>
+                    <p>@item.Body</p>
+                </div>
+            </li>
+        }
+    </ul>
+    @Html.Partial("~/Views/Home/AddComment.cshtml")
+</div> 
+ </div>

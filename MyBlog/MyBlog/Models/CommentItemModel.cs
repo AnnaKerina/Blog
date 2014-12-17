@@ -13,7 +13,7 @@ namespace MyBlog.Models
         {
             this.Username = Username;
             this.Body = Body;
-            this.Date = Date;
+            this.Date = DateTime.Now; ;
         }
 
         public string Username { get; set; }

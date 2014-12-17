@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MyBlog.Models;
 using Forms.Repository;
+using MyBlog.Repository;
 
 namespace MyBlog.Controllers
 {
@@ -15,8 +16,8 @@ namespace MyBlog.Controllers
 
         public ActionResult Recent()
         {
-            var model = new RecentDataModel();
-            return View(model);
+            var db = new EFContext();
+            return View(db.Posts.AsEnumerable());
         }
 
     }

@@ -1,14 +1,14 @@
 ﻿@{
     Layout = null;
 }
-@model MyBlog.Models.RecentDataModel
+@model IEnumerable<MyBlog.Repository.Domain.Post>
 
     <ul class="sb_menu">
-        @foreach (var item in Model.Items)
+        @foreach (var item in Model.OrderByDescending(p => p.ID).Take(3))
         {
             <li>
                 <p class="date">@item.Date.ToString("D")</p>
-                <p class="post"><a href="@item.URL">@item.Text</a></p>
+                <p class="post"><a href="@Url.Action("Index","Home", new { title = item.Title})">@item.Title</a></p>
             </li>
         }
     </ul>

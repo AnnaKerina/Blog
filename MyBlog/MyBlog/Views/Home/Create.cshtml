@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Create";
+}
+
+@model MyBlog.Repository.Domain.Post
+ <div class="mainbar"> 
+<div class="article">
+    <div class="add-comment">
+          <h2><span>New Post</span></h2>
+          <div class="clr"></div>
+          <form action="@Url.Action("Create", "Home")" method="post" enctype="multipart/form-data">
+            <ol>
+                <li>
+                <label>Add Title</label>
+                @Html.TextAreaFor(m => m.Title, new { placeholder = "Your title", type="text", @class="txt-area" })
+              </li>
+              <li>
+                <label>Add Article</label>
+                @Html.TextAreaFor(m => m.Body, new { placeholder = "Your article", @class="txt-area" })
+              </li>
+                <div class="wrap-btn">
+                    <button class="btn-cancel">Cancel</button>
+                    <button class="btn-save">Save changes</button>
+                </div> 
+            </ol>
+          </form>
+        </div>
+        </div>
+     </div>
+

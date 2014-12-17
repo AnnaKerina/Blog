@@ -12,20 +12,15 @@
             <ol>
                 <li>
                 <label for="email">Add Image(required)</label>
-                @Html.TextBoxFor(m => m.Title, new { type="text" })
+                @Html.TextBoxFor(m => m.Post.Title, new { type="text", @class="txt-area" })
               </li>
               <li>
                 <label for="name">Title (required)</label>
-                @Html.TextAreaFor(m => m.Body, new { placeholder = "Your comment", @class="txt-area" })
-              </li>
-              <li>
-                <label for="email">Add Image(required)</label>
-                @Html.TextBoxFor(m => m.Path, new { type="text" })
+                @Html.TextAreaFor(m => m.Post.Body, new { placeholder = "Your comment", @class="txt-area" })
               </li>
                 <div class="wrap-btn">
             <button class="btn-cancel">Cancel</button>
             <button class="btn-save">Save changes</button>
-            <p>Lorem ipsum dolor sit amet, <a href="#">adipiscing</a></p>
         </div> 
             </ol>
           </form>

@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Edit";
+}
+
+@model MyBlog.Repository.Domain.Post
+
+ <div class="mainbar"> 
+<div class="article">
+    <div class="add-comment">
+          <h2>Пост - @Model.Title</h2>
+          <div class="clr"></div>
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.ID)
+        <p>
+            @Html.LabelFor(m => m.Title, "Название поста")
+            <br />
+            @Html.EditorFor(m => m.Title, new { @class = "txt-area" })
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Body, "Текст")
+            <br />
+            @Html.EditorFor(m => m.Body, new { @class = "txt-area" })
+        </p>
+        <p><input type="submit" value="Отправить" /></p>
+    </fieldset>
+}
+        </div>
+        </div>
+      </div>

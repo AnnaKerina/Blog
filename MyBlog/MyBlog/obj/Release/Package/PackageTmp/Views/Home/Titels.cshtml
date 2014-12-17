@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Titels";
+}
+ @model IEnumerable<MyBlog.Repository.Domain.Post>
+<div class="mainbar">    
+<div class="article">
+   
+
+    <ul class="list-comment">
+        @foreach (var item in Model.OrderByDescending(p => p.ID))
+        {
+            <li>
+                <p class="date">@item.Date.ToString("D")</p>
+                <p class="post"><a href="@Url.Action("Index","Home", new { title = item.Title})">@item.Title</a></p>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) 
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </li>
+        }
+    </ul>
+</div>
+</div>

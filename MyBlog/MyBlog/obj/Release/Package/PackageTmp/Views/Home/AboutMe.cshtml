@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "AboutMe";
+}
+
+@model MyBlog.Models.AboutMe
+
+    <div class="content_resize">
+      <div class="mainbar">
+        <div class="article">
+          <h2><span>About me</span></h2>
+          <div class="clr"></div>
+            <p><img src="@Model.path"/></p>
+          <p><strong>@Model.name   @Model.surName</strong></p>
+          <p>@Model.age</p>
+        </div>
+        <div class="article">
+          <h2><span>Our</span> Mission</h2>
+          <div class="clr"></div>
+          <p>@Model.text</p>
+        </div>
+      </div>
+  </div>
+  

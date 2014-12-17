@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Строка подключения в web.config, используемая приложением для доступа к базе данных." defaultValue="Data Source=KOMPI-ПК;Initial Catalog=Blog;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Kompi\\Desktop\\Blog\\MyBlog\\MyBlog\\obj\\Release\\Package\\PackageTmp\\Views\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Kompi\\Desktop\\Blog\\MyBlog\\MyBlog\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="Blog-Web.config Connection String" description="Blog Строка подключения в web.config, используемая приложением для доступа к базе данных." defaultValue="Data Source=mssql1.gear.host;Initial Catalog=myblog;Persist Security Info=True;User ID=myblog;Password=NOKIA*6303" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Kompi\\Desktop\\Blog\\MyBlog\\MyBlog\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Blog']/@connectionString" />
+  </parameter>
+</parameters>

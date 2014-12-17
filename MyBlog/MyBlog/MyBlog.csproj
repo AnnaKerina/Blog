@@ -260,9 +260,6 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Home\Article.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Article\Recent.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -288,6 +285,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\myfirstblog - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\myfirstblog - Web Deploy.pubxml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

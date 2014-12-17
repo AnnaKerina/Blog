@@ -15,20 +15,14 @@ namespace MyBlog.Models
         //    }
         //}
 
-        public UserModel() 
-        {
-            Country = "Belarus";
-            Age = 21;
-            Username = "Samedriss";
-            Text = "Littel blog adout me.";
-        }
-
-        public HttpPostedFileWrapper Avatar { get; set; }
-     
-
-        public string Country { get; set; }
-
-        public int Age { get; set; }
+        //public UserModel() 
+        //{
+        //    Country = "Belarus";
+        //    Age = 21;
+        //    Username = "Samedriss";
+        //    Text = "Littel blog adout me.";
+        //}
+    
 
         public string Username { get; set; }
 

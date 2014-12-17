@@ -514,6 +514,7 @@ a {
     width: 100%;
 }
 
+
 textarea::-webkit-input-placeholder { color: #ced7d7; }
 
 textarea:-moz-placeholder { color: #ced7d7; }

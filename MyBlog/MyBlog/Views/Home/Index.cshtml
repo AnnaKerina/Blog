@@ -2,12 +2,10 @@
 @model ArticleModel
  <div class="mainbar">    
 <div class="article">
-    <h2>@*<span>@Html.Raw(Model.Post.Title)</span>*@</h2>
+    <h2><span>@Html.Raw(Model.Post.Title)</span></h2>
     <div class="clr"></div>
     <p>Posted by <a href="#">Admin</a> <span>&nbsp;&bull;&nbsp;</span> @Html.Raw(Model.Post.DateCreated.ToString("D")) </p>
-    @*<img src="" width="198" height="188" alt="" class="fl" />*@
     <p>@Html.Raw(Model.Post.Body)</p>
-    <p>Tagged: <a href="#">orci</a>, <a href="#">lectus</a>, <a href="#">varius</a>, <a href="#">turpis</a></p>
 </div>
 <div class="article">
    <h2>Comments</h2>
